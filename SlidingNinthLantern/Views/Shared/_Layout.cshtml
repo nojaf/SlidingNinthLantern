@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurelia with Razor templates</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <style>
+        html, body {
+            height:100%;
+        }
+
+         #lantern {
+             background-color:#000;
+             color:white;
+             font-family: 'Poiret One', cursive;
+             display:flex;
+             height:100%;
+             flex-direction: column;
+         }
+
+         img {
+             width:250px;
+         }
+
+         h1 {
+             font-size:3em;
+         }
+
+         h2 {
+             font-size:1.5em;
+         }
+
+         #lantern > * {
+             margin:auto;
+         }
+    </style>
+</head>
+<body aurelia-app="main">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    <script src="~/jspm_packages/system.js"></script>
+    <script src="~/config.js"></script>
+    <script>
+        System.import("aurelia-bootstrapper");
+    </script>
+    </body>
+</html>
